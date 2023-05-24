@@ -2,10 +2,7 @@ package com.example.crudApi.post.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -17,12 +14,16 @@ public class PostEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long num;
 
+    @Column(length = 100, nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private String content;
 
+    @Column(length = 50)
     private Long writerNum;
 
+    @Column(length = 50)
     private int views;
 
     @Builder
