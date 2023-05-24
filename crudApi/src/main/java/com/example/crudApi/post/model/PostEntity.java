@@ -2,7 +2,6 @@ package com.example.crudApi.post.model;
 
 import lombok.*;
 
-import javax.management.relation.Role;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,16 +25,11 @@ public class PostEntity {
 
     private int views;
 
-    private Role role;
-
-    private String refreshToken;
-
     @Builder
-    public PostEntity(String title, String content, Long writerNum, int views, Role role){
+    public PostEntity(String title, String content, Long writerNum, int views){
         this.title = title;
         this.content = content;
         this.writerNum = writerNum;
         this.views = views;
-        this.role = role;
     }
 }
