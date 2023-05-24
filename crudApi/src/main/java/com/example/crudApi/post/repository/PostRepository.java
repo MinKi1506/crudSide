@@ -1,0 +1,8 @@
+package com.example.crudApi.post.repository;
+
+
+import com.example.crudApi.post.model.PostEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PostRepository extends JpaRepository<PostEntity, Long> {
+}
