@@ -1,19 +1,24 @@
 package com.example.crudApi.user.service;
 
-import org.springframework.stereotype.Service;
+import com.example.crudApi.user.model.UserEntity;
+import com.example.crudApi.user.model.vo.UserSignInVo;
+import com.example.crudApi.user.model.vo.UserSignUpVo;
+import com.example.crudApi.user.model.vo.UserResponseVo;
+import org.springframework.http.ResponseEntity;
 
-@Service
-public class UserService {
+import java.util.List;
 
-    //관리자 생성
+public interface UserService {
 
-    //유저 생성
-
-    //유저 1명 조회
+    //회원가입 관리자(userNum=1) 유저(userNum!=1)
+    ResponseEntity signUp(UserSignUpVo userSignUpVo);
 
     //유저 전체 조회
-
-    //유저 정보 수정
+    List<UserResponseVo> getAllUser();
 
     //유저 삭제
+    void deleteUser(Long userNum);
+
+    //로그인
+    ResponseEntity signIn(UserSignInVo userSignInVo);
 }

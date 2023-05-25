@@ -1,25 +1,26 @@
-package com.example.crudApi.user.model;
+package com.example.crudApi.user.model.vo;
 
+import com.example.crudApi.user.model.UserEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class ResponseUserVo {
+public class UserResponseVo {
+
+    private Long userNum;
 
     private String email;
 
     private String name;
 
-    private String nickName;
-
 //    Entity -> DTO
     @Builder
-    public ResponseUserVo(UserEntity userEntity){
+    public UserResponseVo(UserEntity userEntity){
+        this.userNum = userEntity.getUserNum();
         this.email = userEntity.getEmail();
         this.name = userEntity.getName();
-        this.nickName = userEntity.getNickname();
     }
 
 //    @PostMapping("/test/account")

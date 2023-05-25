@@ -1,12 +1,13 @@
-package com.example.crudApi.user.model;
+package com.example.crudApi.user.model.vo;
 
+import com.example.crudApi.user.model.UserEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class RequestUserVo {
+public class UserSignUpVo {
 
     private String email;
 
@@ -14,14 +15,11 @@ public class RequestUserVo {
 
     private String name;
 
-    private String nickname;
-
     @Builder
-    public RequestUserVo(String email, String password, String name, String nickname){
+    public UserSignUpVo(String email, String password, String name){
         this.email = email;
         this.password = password;
         this.name = name;
-        this.nickname = nickname;
     }
 
 //    DTO -> Entity
@@ -30,7 +28,6 @@ public class RequestUserVo {
                 .email(email)
                 .password(password)
                 .name(name)
-                .nickname(nickname)
                 .build();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.crudApi.post.model;
 
+import com.example.crudApi.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,11 +9,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class PostEntity {
+public class PostEntity extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long num;
+    private Long postNum;
 
     @Column(length = 100, nullable = false)
     private String title;
@@ -22,6 +23,9 @@ public class PostEntity {
 
     @Column(length = 50)
     private Long writerNum;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "userNum")
 
     @Column(length = 50)
     private int views;

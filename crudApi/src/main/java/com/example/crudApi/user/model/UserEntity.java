@@ -1,5 +1,6 @@
 package com.example.crudApi.user.model;
 
+import com.example.crudApi.BaseTimeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,11 +12,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class UserEntity {
+public class UserEntity extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long num;
+    private Long userNum;
 
     @Column(length = 50, nullable = false, unique = true)
     private String email;
@@ -26,15 +27,16 @@ public class UserEntity {
     @Column(length = 50)
     private String name;
 
+
     @Column(length = 50)
-    private String nickname;
+    private String role;
 
     @Builder
-    public UserEntity(String email, String password, String name, String nickname){
+    public UserEntity(String email, String password, String name, String role){
         this.email = email;
         this.password = password;
         this.name = name;
-        this.nickname = nickname;
+        this.role = role;
     }
 
 }
