@@ -17,7 +17,6 @@ public class UserController {
 
     private final UserService userService;
 
-
     //회원가입 관리자(userNum=1) 유저(userNum!=1)
     @PostMapping("/signUp")
     public ResponseEntity signUp(@RequestBody UserSignUpVo userSignUpVo){

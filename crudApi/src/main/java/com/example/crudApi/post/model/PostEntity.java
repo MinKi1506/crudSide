@@ -24,9 +24,6 @@ public class PostEntity extends BaseTimeEntity {
     @Column(length = 50)
     private Long writerNum;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "userNum")
-
     @Column(length = 50)
     private int views;
 
@@ -36,5 +33,17 @@ public class PostEntity extends BaseTimeEntity {
         this.content = content;
         this.writerNum = writerNum;
         this.views = views;
+    }
+
+//    게시글 수정 기능
+    public void update(String title, String content) {
+        this.title = title;
+        this.content =content;
+    }
+
+
+//    조회수 증가 기능
+    public void plusView(int addedView) {
+        this.views = addedView;
     }
 }

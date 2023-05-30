@@ -1,23 +1,26 @@
 package com.example.crudApi.post.service;
 
-import com.example.crudApi.post.model.PostEntity;
-import com.example.crudApi.post.repository.PostRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import com.example.crudApi.post.model.vo.PostRequestVo;
+import com.example.crudApi.post.model.vo.PostResponseVo;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class PostService {
+public interface PostService {
 
-    PostRepository postRepository;
+//    게시물 생성
+    void addPost(PostRequestVo postRequestVo);
+//    게시물 1개 조회
+    PostResponseVo getPost(Long postNum);
 
-    @Transactional
-    public Page<PostEntity> pageList(Pageable pageable){
-        return postRepository.findAll(pageable);
-    }
+//    게시물 전체 조회
+    List<PostResponseVo> getPostList();
 
+//    게시물 수정
+    String editPost(Long postNum, PostRequestVo postRequestVo);
+
+//    게시물 삭제
+    void deletePost(Long postNum);
+
+//    조회수 증가
+    void plusView(Long postNum);
 }

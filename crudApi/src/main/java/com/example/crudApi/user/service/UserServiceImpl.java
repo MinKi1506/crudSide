@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService{
             return new ResponseEntity("해당 이메일을 가진 회원이 존재하지 않습니다.", HttpStatus.OK);
         }
 
-        if(userEntity.getPassword().equals(userSignInVo.getPassWord())){
+        if(userEntity.getPassword().equals(userSignInVo.getPassword())){
             return new ResponseEntity("로그인 성공", HttpStatus.OK);
         } else {
             return new ResponseEntity("비밀번호가 일치하지 않습니다.", HttpStatus.OK);

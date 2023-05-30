@@ -11,15 +11,22 @@ public class UserSignInVo {
 
     private String email;
 
-    private String passWord;
-
+    private String password;
 
 
 //    Entity -> DTO
     @Builder
     public UserSignInVo(UserEntity userEntity){
         this.email = userEntity.getEmail();
-        this.passWord = userEntity.getName();
+        this.password = userEntity.getPassword();
+    }
+
+    //    DTO -> Entity
+    public UserEntity toEntity(){
+        return UserEntity.builder()
+                .email(email)
+                .password(password)
+                .build();
     }
 
 }

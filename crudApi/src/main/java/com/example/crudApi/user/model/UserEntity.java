@@ -29,13 +29,17 @@ public class UserEntity extends BaseTimeEntity {
 
 
     @Column(length = 50)
+    private String nickname;
+
+    @Column(length = 50)
     private String role;
 
     @Builder
-    public UserEntity(String email, String password, String name, String role){
+    public UserEntity(String email, String password, String name, String nickname, String role){
         this.email = email;
         this.password = password;
         this.name = name;
+        this.nickname = nickname;
         this.role = role;
     }
 
